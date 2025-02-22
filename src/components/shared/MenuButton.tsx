@@ -1,7 +1,7 @@
 // Using the provided hook
 import { useActionSheet } from '@expo/react-native-action-sheet';
 import { Ionicons } from '@expo/vector-icons';
-import { Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { useAuth } from '../../store/AuthContext';
 import { router } from 'expo-router';
 
@@ -11,10 +11,11 @@ type Link = {
 }
 
 type MenuButtonProps = {
-  links?: {name: string, path: string}[]
+  links?: Link[]
+  testID?: string
 };
 
-export default function MenuButton({links}: MenuButtonProps) {
+export default function MenuButton({links, testID}: MenuButtonProps) {
   const { showActionSheetWithOptions } = useActionSheet();
   const { logout } = useAuth();
 
@@ -42,7 +43,7 @@ export default function MenuButton({links}: MenuButtonProps) {
         return
       }
       
-      if(selectedIndex === - 1) { 
+      if(selectedIndex === - 1 || selectedIndex === undefined) { 
         return
       }
       
@@ -55,7 +56,7 @@ export default function MenuButton({links}: MenuButtonProps) {
   }
 
   return (
-    <TouchableOpacity style={styles.buttonContainer}  onPress={onPress}>
+    <TouchableOpacity testID={testID} style={styles.buttonContainer}  onPress={onPress}>
         <Ionicons name="menu-outline" size={32} color="black" />
     </TouchableOpacity>
   )

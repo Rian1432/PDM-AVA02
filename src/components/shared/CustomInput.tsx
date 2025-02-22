@@ -1,4 +1,4 @@
-import { View, Text, TextInput, StyleSheet, TextInputProps } from 'react-native'
+import { View, TextInput, StyleSheet, TextInputProps } from 'react-native'
 import React, { useState } from 'react'
 import { THEME_COLORS } from '../../constants/globalStyles';
 import { Ionicons } from '@expo/vector-icons';
@@ -6,9 +6,10 @@ import { Ionicons } from '@expo/vector-icons';
 interface CustomTextInputProps extends TextInputProps {
     placeholderTextColor?: string;
     icon?: string;
+    testID?: string;
 }
 
-export default function CustomInput({ placeholderTextColor = '#888', icon, ...props }: CustomTextInputProps) {
+export default function CustomInput({ placeholderTextColor = '#888', icon, testID, ...props }: CustomTextInputProps) {
     const [isFocused, setIsFocused] = useState(false);
 
     const renderIcon = () => {
@@ -26,6 +27,7 @@ export default function CustomInput({ placeholderTextColor = '#888', icon, ...pr
             {renderIcon()}
 
             <TextInput 
+                testID={testID}
                 style={[styles.input, isFocused && styles.inputFocused]}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
