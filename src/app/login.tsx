@@ -53,6 +53,7 @@ export default function login() {
                         icon='person'
                         value={username} 
                         onChangeText={onChangeUserName}
+                        testID='input-username'
                     />
 
                     <CustomInput 
@@ -61,6 +62,7 @@ export default function login() {
                         value={password} 
                         onChangeText={onChangePassword}
                         secureTextEntry
+                        testID='input-password'
                     />
 
                     <Text style={styles.errorMessage}>

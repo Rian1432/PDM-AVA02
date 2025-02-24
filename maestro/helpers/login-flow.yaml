@@ -1,0 +1,26 @@
+appId: host.exp.exponent
+---
+
+- launchApp:
+    appId: 'host.exp.exponent'
+    clearState: true
+
+- openLink: exp://192.168.100.12:8081
+
+- assertVisible: 'Continue'
+
+- tapOn:
+    point: "50%, 10%"
+
+
+- tapOn:
+    id: "input-username"
+- inputText: "fulano"
+
+- tapOn:
+    id: "input-password"
+- inputText: "123"
+
+- hideKeyboard
+
+- tapOn: "Entrar"

@@ -20,7 +20,7 @@ export default function HeaderWithTitle({ title, links }: HeaderWithTitleProps) 
         headerTitleStyle: {
             fontSize: 24,
         },
-        headerRight: () => <MenuButton links={links} />,
+        headerRight: () => <MenuButton links={links} testID="menu-button" />,
       }}
     />
   );

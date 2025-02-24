@@ -1,0 +1,17 @@
+appId: "host.exp.exponent" 
+---
+
+- runFlow:
+    file: "./helpers/login-flow.yaml"
+
+- tapOn:
+    id: "menu-button"
+
+- tapOn:
+    text: "Sobre"
+
+- assertVisible: "Sobre"
+- assertVisible: "Versão 1.0"
+- assertVisible: "Desenvolvido por:"
+- assertVisible: "Rian Beltrão"
+- assertVisible: "clique para acessar o perfil no github:"

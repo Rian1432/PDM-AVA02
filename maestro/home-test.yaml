@@ -1,0 +1,8 @@
+appId: "host.exp.exponent" 
+---
+
+- runFlow:
+    file: "./helpers/login-flow.yaml"
+
+- assertVisible: "Home"
+- assertVisible: "Lista de passageiros"

@@ -1,0 +1,18 @@
+appId: "host.exp.exponent" 
+---
+
+- runFlow:
+    file: "./helpers/login-flow.yaml"
+
+- tapOn:
+    id: "menu-button"
+
+
+- tapOn:
+    text: "Logout"
+
+- assertVisible: "Bem-vindo!"
+- assertVisible: "Login"
+- assertVisible: "Nome"
+- assertVisible: "Senha"
+- assertVisible: "Entrar"
